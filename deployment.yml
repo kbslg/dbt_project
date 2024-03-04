@@ -25,4 +25,11 @@ jobs:
    steps:
      - name: run macro
        command: dbt run-operation my_schema_relations
+       
+- name: Fivetran_Log_Full_Refresh # this is the name of the job
+ schedule: ****** # this is a cron scheduler
+ 
+ steps:
+   - name: run fivetran log models
+     command: dbt run --select +fivetran_log --full_refresh
 
